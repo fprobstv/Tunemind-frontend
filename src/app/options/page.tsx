@@ -1,39 +1,31 @@
-"use client";
+import Link from 'next/link';
 
 export default function Options() {
-  const handleLogin = (filter: string) => {
-    window.location.href = `http://127.0.0.1:8000/login?filter=${filter}`;
-  };
-
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center bg-zinc-950 text-white p-4">
-      <div className="text-center max-w-2xl w-full">
-        <h1 className="text-4xl font-bold mb-8 text-green-500">What do you want to discover today?</h1>
-        <p className="text-zinc-400 mb-10">
-          Choose based on how famous you want it to be.
+    <main className="flex min-h-screen flex-col items-center justify-center p-6 bg-zinc-950 text-zinc-100 selection:bg-green-500 selection:text-zinc-950">
+      
+      <div className="z-10 flex flex-col items-center text-center max-w-5xl w-full animate-fade-in">
+        <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight mb-4">
+          Choose Your <span className="text-white bg-clip-text">Vibe</span>
+        </h1>
+        <p className="text-zinc-400 text-lg md:text-xl mb-16 font-light">
+          Select based on how famous you want it to be.
         </p>
 
-        <div className="flex flex-col gap-4">
-          <button 
-            onClick={() => handleLogin('hits')}
-            className="bg-zinc-800 hover:bg-zinc-700 text-white font-semibold py-4 px-6 rounded-lg transition-colors border border-zinc-700 hover:border-green-500"
-          >
-             Famous artists 
-          </button>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full px-4">
           
-          <button 
-            onClick={() => handleLogin('balanced')}
-            className="bg-zinc-800 hover:bg-zinc-700 text-white font-semibold py-4 px-6 rounded-lg transition-colors border border-zinc-700 hover:border-green-500"
-          >
-            Balanced
-          </button>
+          <Link href="http://127.0.0.1:8000/login?filter=hits" className="group flex flex-col items-center text-center p-8 bg-zinc-900/40 border border-zinc-800/80 rounded-[2rem] hover:bg-zinc-800/50 hover:border-green-500/50 hover:-translate-y-2 transition-all duration-300">
+            <h2 className="text-2xl font-bold mb-3 text-zinc-100 group-hover:text-green-400 transition-colors">Famous artists</h2>
+          </Link>
 
-          <button 
-            onClick={() => handleLogin('underground')}
-            className="bg-zinc-800 hover:bg-zinc-700 text-white font-semibold py-4 px-6 rounded-lg transition-colors border border-zinc-700 hover:border-green-500"
-          >
-            Unknown artists
-          </button>
+          <Link href="http://127.0.0.1:8000/login?filter=balanced" className="group flex flex-col items-center justify-center text-center p-8 bg-zinc-900/40 border border-zinc-800/80 rounded-[2rem] hover:bg-zinc-800/50 hover:border-green-500/50 hover:-translate-y-2 transition-all duration-300 relative overflow-hidden">
+            <h2 className="text-2xl font-bold mb-3 text-zinc-100 group-hover:text-green-400 transition-colors ">Balanced</h2>
+          </Link>
+
+          <Link href="http://127.0.0.1:8000/login?filter=underground" className="group flex flex-col items-center justify-center text-center p-8 bg-zinc-900/40 border border-zinc-800/80 rounded-[2rem] hover:bg-zinc-800/50 hover:border-green-500/50 hover:-translate-y-2 transition-all duration-300">
+            <h2 className="text-2xl font-bold mb-3 text-zinc-100 group-hover:text-green-400 transition-colors">Unknown artists</h2>
+          </Link>
+
         </div>
       </div>
     </main>
