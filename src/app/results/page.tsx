@@ -1,9 +1,10 @@
 "use client";
 
+import { Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 
-export default function Results() {
+function ResultsContent() {
   const searchParams = useSearchParams();
   const recommendations = searchParams.get('recommendations');
 
@@ -44,5 +45,12 @@ export default function Results() {
       </div>
       
     </main>
+  );
+}
+export default function Results() {
+  return (
+    <Suspense fallback={<div className="flex min-h-screen items-center justify-center bg-zinc-950"><div className="w-20 h-20 border-4 border-zinc-800 border-t-green-500 rounded-full animate-spin"></div></div>}>
+      <ResultsContent />
+    </Suspense>
   );
 }
