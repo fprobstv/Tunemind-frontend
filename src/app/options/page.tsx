@@ -1,6 +1,8 @@
 import Link from 'next/link';
 
 export default function Options() {
+  const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://127.0.0.1:8000";
+
   return (
     <main className="flex min-h-screen flex-col items-center justify-center p-6 bg-zinc-950 text-zinc-100 selection:bg-green-500 selection:text-zinc-950">
       
@@ -14,15 +16,15 @@ export default function Options() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full px-4">
           
-          <Link href="http://127.0.0.1:8000/login?filter=hits" className="group flex flex-col items-center text-center p-8 bg-zinc-900/40 border border-zinc-800/80 rounded-[2rem] hover:bg-zinc-800/50 hover:border-green-500/50 hover:-translate-y-2 transition-all duration-300">
+          <Link href={`${API_URL}/login?filter=hits`} className="group flex flex-col items-center text-center p-8 bg-zinc-900/40 border border-zinc-800/80 rounded-[2rem] hover:bg-zinc-800/50 hover:border-green-500/50 hover:-translate-y-2 transition-all duration-300">
             <h2 className="text-2xl font-bold mb-3 text-zinc-100 group-hover:text-green-400 transition-colors">Famous artists</h2>
           </Link>
 
-          <Link href="http://127.0.0.1:8000/login?filter=balanced" className="group flex flex-col items-center justify-center text-center p-8 bg-zinc-900/40 border border-zinc-800/80 rounded-[2rem] hover:bg-zinc-800/50 hover:border-green-500/50 hover:-translate-y-2 transition-all duration-300 relative overflow-hidden">
+          <Link href={`${API_URL}/login?filter=balanced`} className="group flex flex-col items-center justify-center text-center p-8 bg-zinc-900/40 border border-zinc-800/80 rounded-[2rem] hover:bg-zinc-800/50 hover:border-green-500/50 hover:-translate-y-2 transition-all duration-300 relative overflow-hidden">
             <h2 className="text-2xl font-bold mb-3 text-zinc-100 group-hover:text-green-400 transition-colors ">Balanced</h2>
           </Link>
 
-          <Link href="http://127.0.0.1:8000/login?filter=underground" className="group flex flex-col items-center justify-center text-center p-8 bg-zinc-900/40 border border-zinc-800/80 rounded-[2rem] hover:bg-zinc-800/50 hover:border-green-500/50 hover:-translate-y-2 transition-all duration-300">
+          <Link href={`${API_URL}/login?filter=underground`} className="group flex flex-col items-center justify-center text-center p-8 bg-zinc-900/40 border border-zinc-800/80 rounded-[2rem] hover:bg-zinc-800/50 hover:border-green-500/50 hover:-translate-y-2 transition-all duration-300">
             <h2 className="text-2xl font-bold mb-3 text-zinc-100 group-hover:text-green-400 transition-colors">Unknown artists</h2>
           </Link>
 

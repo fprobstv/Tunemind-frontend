@@ -11,8 +11,10 @@ export default function Processing() {
     const code = searchParams.get('code');
     const state = searchParams.get('state');
 
+    const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://127.0.0.1:8000";
+
     if (code && state) {
-      fetch(`http://127.0.0.1:8000/generate?code=${code}&state=${state}`)
+      fetch(`${API_URL}/generate?code=${code}&state=${state}`)
         .then(res => res.json())
         .then(data => {
           const params = new URLSearchParams({ recommendations: data.recommendations });
